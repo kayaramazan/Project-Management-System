@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Frontend</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/assets/vendor/linearicons/style.css">
+	<link rel="stylesheet" href="/assets/vendor/chartist/css/chartist-custom.css">
+	<link rel="stylesheet" href="/assets/css/lucario.css">
+	<link rel="stylesheet" href="/assets/css/codemirror.css">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="/assets/css/demo.css">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+  <app-root>
+	  
+  </app-root>
+
+</body>
+
+<script src="../../../assets/vendor/jquery/jquery.min.js"></script>
+<script src="../../../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>  
+<script src="../../../assets/scripts/klorofil-common.js"></script>
+<!--<script src="../../../assets/scripts/codemirror.js"></script>
+<script src="../../../assets/scripts/javascript.js"></script>
+<script src="../../../assets/scripts/active-line.js"></script>
+<script src="../../../assets/scripts/matchbrackets.js"></script> 
+ 
+<script> 
+		
+		 setTimeout(() => {
+			var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+		  lineNumbers: true,
+		  styleActiveLine: true,
+		  matchBrackets: true
+		});
+		var input =null;
+		function selectTheme() {
+		  var theme = 'lucario';
+		  editor.setOption("theme", theme);
+		  location.hash = "#" + theme;
+		}
+		selectTheme()
+		var choice = (location.hash && location.hash.slice(1)) ||
+					 (document.location.search &&
+					  decodeURIComponent(document.location.search.slice(1)));
+		if (choice) {
+		  input.value = 'lucario';
+		  editor.setOption("theme", 'lucario');
+		}
+		CodeMirror.on(window, "hashchange", function() {
+		  var theme = 'lucario';
+		  if (theme) { input.value = theme; selectTheme(); }
+		
+		}); 
+	
+		 }, 100);
+		
+	  </script>-->
+</html>

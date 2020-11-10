@@ -1,0 +1,19 @@
+
+<div class="container col-md-9 " >
+        <form class="col-md-5" #machineForm="ngForm" (ngSubmit)="onSubmit(machineForm.value)">
+                <div class="form-group ">
+                        <div class="form-group">
+                                <label for="exampleFormControlSelect1">Projeyi Seciniz</label>
+                                <select class="form-control" id="exampleFormControlSelect1" ngModel name="projectName" required>
+                                  <option  value="">Lutfen Seciniz</option>                                 
+                                  <option  *ngFor="let item of configs" value="{{item}}">{{item}}</option> 
+                                </select>
+                              </div>
+                  <label for="exampleInputEmail1">Makine Ip Giriniz</label>
+                  <input type="email" ngModel name="ip"  class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" placeholder="IP:PORT">
+
+                </div>
+                 
+                <button type="submit" onclick="return confirm('Bu projeyi eklemek istedigine emin misin?')" class="btn btn-primary">Ekle</button>
+              </form>
+</div>

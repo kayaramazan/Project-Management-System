@@ -1,0 +1,141 @@
+<div class="main-content" *ngIf="ip else elseBlock">
+  
+  <h3>{{ip}} - {{appName}} <a href="{{gitLink}}">Git Link</a> </h3>
+  <div class="container-fluid">
+    <!-- OVERVIEW -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item active">
+        <a class="nav-link active in" (click)="getVersion()" id="version-tab" data-toggle="tab" href="#version"
+          role="tab" aria-controls="version" aria-selected="true">Version</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="getConfig()" id="config-tab" data-toggle="tab" href="#config" role="tab"
+          aria-controls="config" aria-selected="false">Config</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="getLogConfig()" id="configLog-tab" data-toggle="tab" href="#configLog" role="tab"
+          aria-controls="configLog" aria-selected="false">Config Log</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="getLogServer()" id="logServer-tab" data-toggle="tab" href="#logServer" role="tab"
+          aria-controls="logServer" aria-selected="false">Log Server</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active in" style="white-space: pre-line" id="version" role="tabpanel"
+        aria-labelledby="version-tab">
+        <div class="well">{{versionDiv}}</div>
+      </div>
+      <div class="tab-pane fade" style="white-space: pre-line" id="config" role="tabpanel" aria-labelledby="config-tab">
+        <div class="well" #configDiv></div>
+      </div>
+      <div class="tab-pane fade" style="white-space: pre-line" id="configLog" role="tabpanel"
+        aria-labelledby="configLog-tab">
+        <div class="well" #logConfigDiv>
+        </div>
+      </div>
+      <div class="tab-pane fade" style="white-space: pre-line" id="logServer" role="tabpanel"
+        aria-labelledby="logServer-tab">
+        <div class="well" #logServerDiv></div>
+      </div>
+      <div class="col-md-9">
+        Log Url = <a href="{{logUrl}}"> {{logUrl}}</a>
+        <br><br>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <button class="btn btn-primary" (click)="reload()"><i class="fa fa-refresh"></i> Reload</button> &nbsp;&nbsp;
+      <button class="btn btn-info" (click)="isEdit = !isEdit"> <i class="fa fa-edit"></i> Edit</button>
+    </div>
+    <br>
+    <div class="col-md-9">
+      <div *ngIf="isEdit" class="form-group">
+
+        <label for="exampleFormControlTextarea1">Edit</label>
+        <textarea #box class="form-control" name="selectedSection" id="exampleFormControlTextarea1"
+          rows="15">{{selectedSection}}</textarea>
+        <br> <button (click)="update(box.value)" class="btn btn-success">Kaydet</button>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<ng-template #elseBlock>
+  <div class="container col-md-9">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">
+        <label for="Projeler">Projeler</label>  
+        </h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Proje Adi</th>
+              <th>İşlemler</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of projects">
+              <td>{{item.projectName}}</td>
+              <td>
+                <button class="btn btn-info" (click)="editProject(item.projectName)">Duzenle</button> &nbsp;
+                <button class="btn btn-danger" (click)="deleteProject(item.projectName)">Sil</button>
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+    <div class="card" *ngIf="machines.list">
+      <div class="card-header">
+        <h3 class="card-title"><label for="Projeler">Makineler</label>  </h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>IP</th>
+              <th>İşlemler</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of machines.list">
+
+            <tr *ngFor="let element of item.name">
+              <td>{{item.ip}} - {{element.name}} </td>
+              <td>
+                <!-- <button  class="btn btn-info" (click)="editIp(item.ip,element.name)">Duzenle</button> &nbsp; -->
+                <button class="btn btn-danger"
+                  (click)="deleteIp(item.ip,element.name,machines.projectName)">Sil</button>
+              </td>
+            </tr>
+            <tr *ngIf="item.name.length==0">
+              <td>{{item.ip}} - [ ] </td>
+              <td>
+                <!-- <button  class="btn btn-info" (click)="editIp(item.ip,element.name)">Duzenle</button> &nbsp; -->
+                <button class="btn btn-danger" (click)="deleteIp(item.ip,null,machines.projectName)">Sil</button>
+              </td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+    
+  </div>
+
+</ng-template>
+

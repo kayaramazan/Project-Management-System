@@ -1,0 +1,70 @@
+<nav class="navbar navbar-default navbar-fixed-top col-md-12">
+    <div class="brand">
+        <a (click)="goHomePage()" style="cursor: pointer"><img
+                src="https://www.kentkart.com/wp-content/uploads/2017/02/logo.png" alt="Klorofil Logo"
+                class="img-responsive logo"></a>
+    </div>
+
+
+    <div class="container-fluid">
+
+        <div class="container">
+            <div class="row">
+                <div class="navbar-btn col-sm">
+                    <button type="button" class="btn-toggle-fullwidth"><i
+                            class="lnr lnr-arrow-left-circle"></i></button>
+                </div>
+                <form class="navbar-form navbar-left col-sm" #searchForm="ngForm"
+                    (ngSubmit)="onSubmit(searchForm.value)">
+                    <div class="input-group">
+                        <input type="text" name="value" ngModel class="form-control" placeholder="Search dashboard...">
+                        <span class="input-group-btn"><button type="submit" class="btn btn-primary">Go</button></span>
+ 
+                    </div>
+                </form>
+                <button routerLink="add-configs" class="btn btn-success col-sm" style="float: right; margin-top: 30px">
+                    <i class="fa fa-plus"></i> Add Configs</button>
+
+                <button routerLink="add-machine" class="btn btn-success col-sm" style="float: right; margin: 30px 5px">
+                    <i class="fa fa-plus"></i> Add Machine</button>
+
+                <button routerLink="new-project" class="btn btn-success col-sm" style="float: right; margin-top: 30px">
+                    <i class="fa fa-plus"></i> New Project</button>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- END NAVBAR -->
+<!-- LEFT SIDEBAR -->
+<div id="sidebar-nav" class="sidebar col-md-4" style="margin-top:30px;">
+    <div class="sidebar-scroll">
+        <nav>
+            <ul class="nav">
+                <li *ngFor="let element of result">
+                    <a href="#subPages{{element.id}}" data-toggle="collapse" class="collapsed"><i
+                            class="lnr lnr-file-empty"></i> <span>{{element.projectName}}</span> <i
+                            class="icon-submenu lnr lnr-chevron-left"></i></a>
+                    <div id="subPages{{element.id}}" class="collapse ">
+                        <ul class="nav">
+                            <li *ngFor="let item of element.list">
+                                <a href="#subbPages{{item.id}}" data-toggle="collapse" class="collapsed"><i
+                                        class="lnr lnr-file-empty"></i> <span>{{item.ip}}</span> <i
+                                        class="icon-submenu lnr lnr-chevron-left"></i></a>
+                                <div id="subbPages{{item.id}}" class="collapse ">
+                                    <ul class="nav">
+                                        <li *ngFor="let e of item.name" style="cursor: pointer"><a
+                                                (click)="getCurl(element.projectName,item.ip,e.name,e.gitLink)"
+                                                class="">{{e.name}} </a></li>
+                                    </ul>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="text-center"> 
+                    <button routerLink="self-post" class="btn btn-info"> <i class="fa fa-edit"></i> Self Post</button></li>
+            </ul>
+        </nav>
+    </div>
+</div>

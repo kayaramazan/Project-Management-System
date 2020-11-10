@@ -1,0 +1,20 @@
+
+
+    <div class="main">
+<div class="container col-md-9">
+
+    <h2>"{{value}}" icin arama sonuclari</h2> 
+<ul class="list-group" >
+    <li class="list-group-item" *ngFor="let item of result">
+       <span class="h2"> {{item.project}} |</span> 
+        <span class="h3">{{item.element.ip_no}}</span><br><br>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let e of item.element.configs">
+            <span class="h4"  >
+               <a style="cursor: pointer" (click)="getCurl(item.project,item.element.ip_no,e.appName,e.gitSource)"> {{e.appName}} </a>
+          </span> 
+            </li>
+        </ul>
+    </li>
+</ul></div>
+</div>

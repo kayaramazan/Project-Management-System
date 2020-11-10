@@ -1,0 +1,63 @@
+
+<div class="container col-md-9 " >
+        <form class="col-md-7"  #configsForm="ngForm" (ngSubmit)="onSubmit(configsForm.value)" >
+                <div class="form-group ">
+                        <div class="form-group">
+                                <label for="exampleFormControlSelect1">Projeyi Seciniz</label>
+                                <select class="form-control" ngModel name="projectName"  id="exampleFormControlSelect1" (change)="getIp($event.target.value)" >
+                            <option  value="">Lutfen Seciniz</option>
+                                
+                                  
+                                  <option  *ngFor="let item of project" value="{{item}}">{{item}}</option> 
+
+                                </select>
+                              
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">IP Seciniz</label>
+                            <select class="form-control" ngModel name="ip"  id="exampleFormControlSelect1">
+                            <option  value="">Lutfen Seciniz</option> 
+                                  <option  *ngFor="let item of projectIp" value="{{item.ip_no}}">{{item.ip_no}}</option> 
+                            </select>
+                        </div>
+                  <label for="exampleInputEmail1">AppName</label>
+                  <input type="text" ngModel name="appName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                  <label for="exampleInputEmail1">configUrl</label>
+                  <input type="text" ngModel name="configUrl" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                  <label for="exampleInputEmail1">configUpdateUrl</label>
+                  <input type="text" ngModel name="configUpdateUrl" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                  <label for="exampleInputEmail1">configReload</label>
+                  <input type="text" ngModel name="configReload" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                  <label for="exampleInputEmail1">logUrl</label>
+                  <input type="text" ngModel name="logUrl" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                  <label for="exampleInputEmail1">logUpdateUrl</label>
+                  <input type="text" ngModel name="logUpdateUrl" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                  <label for="exampleInputEmail1">logReload</label>
+                  <input type="text" ngModel name="logReload" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                  <label for="exampleInputEmail1">serverLog</label>
+                  <input type="text" ngModel name="serverLog" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                  <label for="exampleInputEmail1">version</label>
+                  <input type="text" ngModel name="version" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                  <label for="exampleInputEmail1">checkStatus</label>
+                  <input type="text" ngModel name="checkStatus" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                  <label for="exampleInputEmail1">configurationMD</label>
+                  <input type="text" ngModel name="configurationMD" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                  <label for="exampleInputEmail1">gitSource</label>
+                  <input type="text" ngModel name="gitSource" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                </div>
+                 
+                <button type="submit" onclick="return confirm('Eklemek istediginizden emin misiniz')" class="btn btn-primary">Ekle</button>
+              </form>
+</div>

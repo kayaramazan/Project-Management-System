@@ -1,0 +1,12 @@
+
+<div class="container col-md-9 " >
+        <form class="col-md-5" #projectName="ngForm" (ngSubmit)="onSubmit(projectName.value)" >
+                <div class="form-group ">
+                  <label for="exampleInputEmail1">Proje Adi</label>
+                  <input type="text" name="projectName" ngModel class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Proje Adi Giriniz">
+                  <small id="emailHelp" class="form-text text-muted">Gireceginiz isim yan menude listelenecektir.</small>
+                </div>
+                 
+                <button type="submit" onclick="return confirm('Bu projeyi eklemek istedigine emin misin?')" class="btn btn-primary">Ekle</button>                
+              </form>
+</div>

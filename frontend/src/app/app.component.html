@@ -1,0 +1,17 @@
+<div id="wrapper">
+        <!-- NAVBAR -->
+        <app-navbar [isReset]="name"></app-navbar>
+        <!-- END LEFT SIDEBAR -->
+        <!-- MAIN -->
+    
+    <div class="main" style="height:960px; overflow:scroll">
+    <router-outlet  (activate)="onActivate($event)"></router-outlet>
+    </div>
+        <!-- END MAIN -->
+        <div class="clearfix"></div>
+       
+    </div>
+
+   
+    
+    

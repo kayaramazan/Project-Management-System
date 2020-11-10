@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "async-lock": "^1.2.4",
+    "basic-auth": "^2.0.1",
+    "cookie-parser": "~1.4.4",
+    "curl-request": "^1.1.1",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "file-system": "^2.2.2",
+    "http": "0.0.1-security",
+    "http-errors": "~1.6.3",
+    "http-proxy": "^1.18.1",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1",
+    "request": "^2.88.2"
+  }
+}

@@ -1,0 +1,36 @@
+<div class="row " style="padding: 0 50px">
+<div class="container col-md-5">
+    <form  >
+
+<div class="row">
+
+  <div class="container col-md-12"> 
+          <label for="post" >Post Body</label><br>
+            <textarea #body name="body" id="body" class="form-control col-md-12" cols="60" rows="14"></textarea>
+  </div>
+  <div class="container col-md-9">  
+                <label for="post" >Url</label> <br>
+
+       <input type="text" #url   class="form-control" name="url" id=""> 
+</div>
+<div class="container col-md-3">
+                <label for="post" > &nbsp;</label>
+                 <br>
+        <button type="button" (click)="onSubmit(body.value,url.value)" class="btn btn-success form-control">Submit</button>
+        <!-- <button type="button" (click)="search(url.value)" class="btn btn-success form-control">GetFile</button> -->
+</div> 
+</div> 
+</form>   
+</div>
+<div class="container col-md-5">
+                <div class="tab-pane" style="white-space: pre-line" id="configLog" role="tabpanel" aria-labelledby="configLog-tab">
+                <div class="well" >
+                        {{result}}
+                </div>
+              </div>
+</div>
+</div>
+<!-- <br>
+<div class="container col-md-5">
+<textarea id="code" name="code"></textarea>
+</div> -->
